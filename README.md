@@ -4,7 +4,7 @@
 # To launch:
 ```
 
-*check your node.js version >=14
+* check your node.js version >=14
 npm install
 npm start
 OR
