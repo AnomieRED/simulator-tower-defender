@@ -20,7 +20,7 @@ async function readLine(str) {
 	const enemy = await readLine('Set name enemy: ');
 	const dictance = await readLine('Set distantce: ');
 	const speed = await readLine('Set speed: ');
-	const rangeTower = await Number.parseInt(range);
+	const rangeTower = Number.parseInt(range);
 	const enemyDistance = Number.parseInt(dictance);
 	const enemySpeed = Number.parseInt(speed);
 	if (
