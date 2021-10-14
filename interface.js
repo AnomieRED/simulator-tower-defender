@@ -1,5 +1,5 @@
 const readline = require('readline');
-const { createRangeTower, createEnemy } = require('./enemy');
+const { createRangeTower, createEnemy } = require('./creation');
 const { startGame } = require('./game');
 
 const rl = readline.createInterface({
@@ -20,18 +20,19 @@ async function readLine(str) {
 	const enemy = await readLine('Set name enemy: ');
 	const dictance = await readLine('Set distantce: ');
 	const speed = await readLine('Set speed: ');
+	const rangeTower = await Number.parseInt(range);
+	const enemyDistance = Number.parseInt(dictance);
+	const enemySpeed = Number.parseInt(speed);
 	if (
-		!Number.isInteger(range) ||
-		!Number.isInteger(dictance) ||
-		!Number.isInteger(speed)
-	) {
+		!Number.isInteger(rangeTower) ||
+		!Number.isInteger(enemyDistance) ||
+		!Number.isInteger(enemySpeed)
+	)
 		console.log(
-			'\nPlease check the entered numbers!\nPress "C" to exit and try again'
+			'\nPlease check the entered numbers!\nPress "Ctrl + C" to exit and try again'
 		);
-		return;
-	}
-	const bot = await createEnemy(enemy, dictance, speed);
-	const tower = await createRangeTower(range);
+	const bot = createEnemy(enemy, enemyDistance, enemySpeed);
+	const tower = createRangeTower(rangeTower);
 	startGame(tower, bot);
 	rl.close();
 })();
